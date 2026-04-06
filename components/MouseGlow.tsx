@@ -35,7 +35,7 @@ export default function MouseGlow() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed inset-0 z-[999] hidden md:block"
+      className="pointer-events-none fixed inset-0 -z-10 hidden md:block"
       style={{ background }}
     />
   );
