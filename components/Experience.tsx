@@ -14,24 +14,24 @@ interface ExperienceItem {
 const fallbackExperience: ExperienceItem[] = [
   {
     _id: "1",
-    company: "Creative Studio X",
-    role: "Senior Graphic Designer",
-    duration: "2022 – Present",
-    type: "full-time",
+    company: "CanGrow Group",
+    role: "Team Leader - Graphic Designer",
+    duration: "Nov 2024 – Present",
+    type: "Full Time",
   },
   {
     _id: "2",
-    company: "Freelance",
-    role: "Brand Designer & Art Director",
-    duration: "2020 – 2022",
-    type: "freelance",
+    company: "Creative Corner",
+    role: "Mid. Graphic designer",
+    duration: "Nov 2023 - Nov 2024",
+    type: "Full Time",
   },
   {
     _id: "3",
-    company: "DesignCo Agency",
-    role: "Junior Designer",
-    duration: "2018 – 2020",
-    type: "full-time",
+    company: "To Print Agency",
+    role: "Printing Designer",
+    duration: "Fep 2020 - Oct 2023",
+    type: "Full Time",
   },
 ];
 

@@ -17,12 +17,6 @@ const fallbackEducation: EducationItem[] = [
     degree: "Master of Graphic Design",
     year: "2016 – 2018",
   },
-  {
-    _id: "2",
-    university: "University of Creative Arts",
-    degree: "Bachelor of Visual Communication",
-    year: "2013 – 2016",
-  },
 ];
 
 export default function Education({ data }: { data: EducationItem[] }) {
