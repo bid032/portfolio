@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       from: "Portfolio <onboarding@resend.dev>", // مؤقت
       to: ["bidotito1@gmail.com"], // 👈 غير ده بإيميلك
       subject: `New message from ${name}`,
-      reply_to: email,
+      replyTo: email,
       html: `
         <div style="font-family: sans-serif; line-height:1.6">
           <h2>New Contact Message</h2>
