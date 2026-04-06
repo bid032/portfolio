@@ -22,13 +22,15 @@ const fallbackAbout: AboutData = {
 export default function About({ data }: { data: AboutData | null }) {
   const about = data || fallbackAbout;
 
+  // ✅ صورة Sanity أو fallback local
   const profileUrl = about.profileImage
     ? urlFor(about.profileImage).width(600).height(750).format("webp").url()
-    : null;
+    : "/Photos/About/01.webp";
 
   return (
     <SectionWrapper id="about">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        
         {/* Image */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -38,23 +40,16 @@ export default function About({ data }: { data: AboutData | null }) {
           className="relative"
         >
           <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface border border-border">
-            {profileUrl ? (
-              <Image
-                src={profileUrl}
-                alt="Abdallah Ahmed — Graphic Designer"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            ) : (
-              <div className="w-full h-full bg-surface-hover flex items-center justify-center">
-                <div className="text-center">
-                  <span className="text-6xl font-bold text-primary/20">B</span>
-                  <p className="text-text-muted text-sm mt-2">Profile Photo</p>
-                </div>
-              </div>
-            )}
+            <Image
+              src={profileUrl}
+              alt="Abdallah Ahmed — Graphic Designer"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
+
           {/* Decorative border */}
           <div className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-2 border-primary/20 -z-10" />
         </motion.div>
@@ -69,8 +64,10 @@ export default function About({ data }: { data: AboutData | null }) {
           <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-2">
             About
           </h2>
+
           <div className="w-16 h-[3px] bg-primary mb-8" />
 
+          {/* ✅ Bio */}
           {about.bio && about.bio.length > 0 ? (
             <div className="prose prose-invert prose-p:text-text-secondary prose-p:leading-relaxed max-w-none mb-8">
               <PortableText value={about.bio} />
@@ -78,21 +75,18 @@ export default function About({ data }: { data: AboutData | null }) {
           ) : (
             <p className="text-text-secondary leading-relaxed mb-8">
               I&apos;m a Professional Creative Designer with over 4 years of experience in advertising and print design, helping brands stand
-out through strategic and visually compelling solutions. By combining creative thinking with a strong marketing mindset,
-I deliver designs that communicate clearly, capture attention, and create lasting impact. I’ve collaborated with brands
-across various industries, including food & beverage (F&B), healthcare, and technology, giving me valuable experience
-working with diverse markets and audiences.
-My skills includes social media designs, Typo & Calligraphy, Photo Manipulation, Visualization, printing designs,
-Presentation, and brand identity development. I’m highly focused on quality, precision, color theory, and execution,
-ensuring every project reflects professionalism and adds real value to the brand.
+              out through strategic and visually compelling solutions. By combining creative thinking with a strong marketing mindset,
+              I deliver designs that communicate clearly, capture attention, and create lasting impact.
             </p>
           )}
 
+          {/* ✅ Skills */}
           {about.skillsText && (
             <div>
               <h3 className="text-sm font-semibold text-primary uppercase tracking-widest mb-4">
                 Core Skills
               </h3>
+
               <div className="flex flex-wrap gap-2">
                 {about.skillsText.split(",").map((skill, i) => (
                   <span
