@@ -13,14 +13,13 @@ interface SoftwareItem {
 }
 
 const fallbackSoftware: SoftwareItem[] = [
-  { _id: "1", name: "Photoshop", icon: null, proficiency: 95 },
-  { _id: "2", name: "Illustrator", icon: null, proficiency: 90 },
-  { _id: "3", name: "InDesign", icon: null, proficiency: 85 },
-  { _id: "4", name: "Figma", icon: null, proficiency: 92 },
-  { _id: "5", name: "After Effects", icon: null, proficiency: 80 },
-  { _id: "6", name: "Premiere Pro", icon: null, proficiency: 75 },
-  { _id: "7", name: "Blender", icon: null, proficiency: 60 },
-  { _id: "8", name: "Lightroom", icon: null, proficiency: 88 },
+  { _id: "1", name: "Photoshop", icon: null, proficiency: 100 },
+  { _id: "2", name: "Illustrator", icon: null, proficiency: 100 },
+  { _id: "3", name: "InDesign", icon: null, proficiency: 80 },
+  { _id: "4", name: "Premiere Pro", icon: null, proficiency: 50 },
+  { _id: "5", name: "Capcut", icon: null, proficiency: 80 },
+  { _id: "6", name: "Blender", icon: null, proficiency: 30 },
+
 ];
 
 export default function Software({ data }: { data: SoftwareItem[] }) {

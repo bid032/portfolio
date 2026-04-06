@@ -11,6 +11,8 @@ const fallbackSkills: string[] = [
   "Creative Problem Solving",
   "Visual Communication",
   "Attention to Detail",
+  "Creative thinking skills",
+  "Use ai support",
   "Team Collaboration",
   "Time Management",
   "Client Relations",
