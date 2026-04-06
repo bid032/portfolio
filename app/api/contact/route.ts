@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -22,30 +25,25 @@ export async function POST(request: Request) {
       );
     }
 
-    // For now, log the message (replace with Sanity mutation or email service)
-    console.log("Contact form submission:", { name, email, message });
-
-    // TODO: Uncomment and configure to save to Sanity:
-    // const mutations = [{
-    //   create: {
-    //     _type: 'contactMessage',
-    //     name,
-    //     email,
-    //     message,
-    //     createdAt: new Date().toISOString(),
-    //   }
-    // }];
-    // await fetch(`https://${projectId}.api.sanity.io/v2024-01-01/data/mutate/${dataset}`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    //   body: JSON.stringify({ mutations }),
-    // });
+    // ✉️ SEND EMAIL HERE
+    await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>", // مؤقت
+      to: ["bidotito1@gmail.com"], // 👈 غير ده بإيميلك
+      subject: `New message from ${name}`,
+      reply_to: email,
+      html: `
+        <div style="font-family: sans-serif; line-height:1.6">
+          <h2>New Contact Message</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+        </div>
+      `,
+    });
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error) {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

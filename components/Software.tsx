@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
 import { urlFor } from "@/sanity/image";
 import SectionWrapper from "./SectionWrapper";
@@ -14,12 +14,11 @@ interface SoftwareItem {
 
 const fallbackSoftware: SoftwareItem[] = [
   { _id: "1", name: "Photoshop", icon: null, proficiency: 100 },
-  { _id: "2", name: "illustrator", icon: null, proficiency: 100 },
+  { _id: "2", name: "Illustrator", icon: null, proficiency: 100 },
   { _id: "3", name: "InDesign", icon: null, proficiency: 80 },
   { _id: "4", name: "Premiere Pro", icon: null, proficiency: 50 },
   { _id: "5", name: "Capcut", icon: null, proficiency: 80 },
   { _id: "6", name: "Blender", icon: null, proficiency: 30 },
-
 ];
 
 export default function Software({ data }: { data: SoftwareItem[] }) {
@@ -40,56 +39,84 @@ export default function Software({ data }: { data: SoftwareItem[] }) {
         <p className="text-text-secondary">My creative arsenal.</p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto"> */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         {items.map((tool, index) => {
           const iconUrl = tool.icon
             ? urlFor(tool.icon).width(80).height(80).format("webp").url()
             : null;
 
+          // mouse tracking
+          const mouseX = useMotionValue(0);
+          const mouseY = useMotionValue(0);
+
+          const smoothX = useSpring(mouseX, { stiffness: 150, damping: 20 });
+          const smoothY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+
+          function handleMouseMove(e: any) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            mouseX.set(e.clientX - rect.left);
+            mouseY.set(e.clientY - rect.top);
+          }
+
           return (
             <motion.div
               key={tool._id}
-              initial={{ opacity: 0, scale: 0.9 }}
+              onMouseMove={handleMouseMove}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
-              whileHover={{
-                y: -6,
-                boxShadow: "0 0 25px rgba(245,127,0,0.12)",
-              }}
-              className="group p-6 bg-surface border border-border rounded-xl text-center hover:border-primary/40 transition-all duration-300"
+              whileHover={{ y: -8 }}
+              className="relative overflow-hidden group h-[150px] flex flex-col justify-between p-5 bg-surface border border-border rounded-2xl text-center transition-all duration-300 hover:border-primary/40 hover:shadow-[0_10px_30px_rgba(245,127,0,0.15)]"
             >
-              {iconUrl ? (
-                <div className="w-10 h-10 mx-auto mb-4 relative">
-                  <Image
-                    src={iconUrl}
-                    alt={tool.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              ) : (
-                <div className="w-10 h-10 mx-auto mb-4 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold text-sm">
-                    {tool.name.charAt(0)}
-                  </span>
-                </div>
-              )}
+              {/* GLOW LAYER */}
+              <motion.div
+                className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300"
+                style={{
+                  background: `radial-gradient(250px circle at ${smoothX.get()}px ${smoothY.get()}px, rgba(245,127,0,0.25), transparent 60%)`,
+                }}
+              />
 
-              <p className="text-secondary text-sm font-semibold mb-3">
-                {tool.name}
-              </p>
+              {/* CONTENT */}
+              <div className="relative z-10 flex flex-col items-center gap-3">
+                {iconUrl ? (
+                  <div className="w-12 h-12 relative flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <Image
+                      src={iconUrl}
+                      alt={tool.name}
+                      fill
+                      className="object-contain p-2"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20">
+                    <span className="text-primary font-bold text-sm">
+                      {tool.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
 
-              {/* Proficiency bar */}
+                <p className="text-secondary text-sm font-medium leading-none">
+                  {tool.name}
+                </p>
+              </div>
+
+              {/* PROGRESS */}
               {tool.proficiency && (
-                <div className="w-full h-1 bg-border rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${tool.proficiency}%` }}
-                    transition={{ duration: 1, delay: 0.3 + index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="h-full bg-gradient-to-r from-primary to-primary-dark rounded-full"
-                  />
+                <div className="relative z-10 w-full">
+                  <div className="w-full h-[6px] bg-border/60 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${tool.proficiency}%` }}
+                      transition={{
+                        duration: 1,
+                        delay: 0.3 + index * 0.05,
+                      }}
+                      viewport={{ once: true }}
+                      className="h-full bg-gradient-to-r from-primary to-primary-dark rounded-full"
+                    />
+                  </div>
                 </div>
               )}
             </motion.div>

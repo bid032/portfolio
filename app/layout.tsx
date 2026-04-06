@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+import MouseGlow from "@/components/MouseGlow";
 // We'll use a standard system font stack instead of next/font to bypass environment installation issues
 const fontVariable = "--font-inter";
+
+
 
 export const metadata: Metadata = {
   title: "Abdallah Ahmed — Portfolio",
@@ -40,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={fontVariable} suppressHydrationWarning>
       <body className="antialiased" suppressHydrationWarning>
+        <MouseGlow />
         <Navbar />
         <main>{children}</main>
         <Footer />
