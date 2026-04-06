@@ -14,7 +14,7 @@ interface SoftwareItem {
 
 const fallbackSoftware: SoftwareItem[] = [
   { _id: "1", name: "Photoshop", icon: null, proficiency: 100 },
-  { _id: "2", name: "Illustrator", icon: null, proficiency: 100 },
+  { _id: "2", name: "illustrator", icon: null, proficiency: 100 },
   { _id: "3", name: "InDesign", icon: null, proficiency: 80 },
   { _id: "4", name: "Premiere Pro", icon: null, proficiency: 50 },
   { _id: "5", name: "Capcut", icon: null, proficiency: 80 },

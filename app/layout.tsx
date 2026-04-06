@@ -7,10 +7,23 @@ import Footer from "@/components/Footer";
 const fontVariable = "--font-inter";
 
 export const metadata: Metadata = {
-  title: "Abdallah Ahmed — Graphic Designer",
+  title: "Abdallah Ahmed — Portfolio",
+
+  icons: {
+    icon: "/icon.png",
+  },
+
   description:
     "Portfolio of Abdallah Ahmed, a creative graphic designer.",
-  keywords: ["graphic designer", "portfolio", "branding", "design", "Abdallah Ahmed"],
+
+  keywords: [
+    "graphic designer",
+    "portfolio",
+    "branding",
+    "design",
+    "Abdallah Ahmed",
+  ],
+
   openGraph: {
     title: "Abdallah Ahmed — Graphic Designer",
     description:
