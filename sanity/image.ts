@@ -4,5 +4,6 @@ import { client } from "./client";
 const builder = imageUrlBuilder(client);
 
 export function urlFor(source: any) {
-  return builder.image(source);
+  const isLive = process.env.NODE_ENV==="production"
+  return builder.image(isLive?`https://bid032-portfolio.netlify.app/${source}`:source);
 }

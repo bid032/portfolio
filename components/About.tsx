@@ -26,6 +26,7 @@ export default function About({ data }: { data: AboutData | null }) {
   const profileUrl = about.profileImage
     ? urlFor(about.profileImage).width(600).height(750).format("webp").url()
     : "/Photos/About/01.webp";
+console.log("profileUrl",profileUrl);
 
   return (
     <SectionWrapper id="about">
