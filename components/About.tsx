@@ -77,12 +77,14 @@ export default function About({ data }: { data: AboutData | null }) {
             </div>
           ) : (
             <p className="text-text-secondary leading-relaxed mb-8">
-              I&apos;m a passionate graphic designer with an eye for bold
-              visuals and clean aesthetics. I specialize in creating memorable
-              brand identities, editorial layouts, and digital experiences that
-              leave a lasting impression. With years of experience in the
-              creative industry, I bring a unique blend of artistic vision and
-              strategic thinking to every project.
+              I&apos;m a Professional Creative Designer with over 4 years of experience in advertising and print design, helping brands stand
+out through strategic and visually compelling solutions. By combining creative thinking with a strong marketing mindset,
+I deliver designs that communicate clearly, capture attention, and create lasting impact. I’ve collaborated with brands
+across various industries, including food & beverage (F&B), healthcare, and technology, giving me valuable experience
+working with diverse markets and audiences.
+My skills includes social media designs, Typo & Calligraphy, Photo Manipulation, Visualization, printing designs,
+Presentation, and brand identity development. I’m highly focused on quality, precision, color theory, and execution,
+ensuring every project reflects professionalism and adds real value to the brand.
             </p>
           )}
 

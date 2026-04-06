@@ -6,6 +6,7 @@ const socialLinks = [
   { label: "Behance", href: "https://www.behance.net/bid032/projects" },
   { label: "Instagram", href: "https://www.instagram.com/bid032/" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/bid032/" },
+  { label: "Whatsapp", href: "Wa.me/+201028463485" },
 ];
 
 export default function Footer() {
