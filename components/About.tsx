@@ -15,17 +15,17 @@ interface AboutData {
 const fallbackAbout: AboutData = {
   bio: [],
   skillsText:
-    "Branding, Typography, Layout Design, Color Theory, Digital Illustration, Print Design, Motion Graphics, UI/UX Design",
+    "Social Media, Manipulation, Printing Design, Typo & Calligraphy, Branding, Layout Design, Color Theory",
   profileImage: null,
 };
 
 export default function About({ data }: { data: AboutData | null }) {
   const about = data || fallbackAbout;
 
-  // ✅ صورة Sanity أو fallback local
-  const profileUrl = about.profileImage
+
+  const profileUrl = about?.profileImage
     ? urlFor(about.profileImage).width(600).height(750).format("webp").url()
-    : `${process.env.NEXT_PUBLIC_SITE_URL}/Photos/About/01.webp`;
+    : "/Photos/About/01.webp";
 
   return (
     <SectionWrapper id="about">
@@ -62,7 +62,7 @@ export default function About({ data }: { data: AboutData | null }) {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-2">
-            About
+            About Me
           </h2>
 
           <div className="w-16 h-[3px] bg-primary mb-8" />
@@ -74,7 +74,7 @@ export default function About({ data }: { data: AboutData | null }) {
             </div>
           ) : (
             <p className="text-text-secondary leading-relaxed mb-8">
-              I&apos;m a Professional Creative Designer with over 4 years of experience in advertising and print design, helping brands stand
+              I&apos;m a Professional Creative Designer with over 5 years of experience in advertising and print design, helping brands stand
               out through strategic and visually compelling solutions. By combining creative thinking with a strong marketing mindset,
               I deliver designs that communicate clearly, capture attention, and create lasting impact.
             </p>

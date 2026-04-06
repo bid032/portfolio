@@ -16,13 +16,13 @@ interface Project {
 
 const categories = [
   "All",
+  "Social Media",
   "Branding",
-  "Print",
-  "Digital",
-  "Illustration",
-  "UI/UX",
-  "Motion",
-  "Editorial",
+  "Manipulation",
+  "Typo & Calligraphy",
+  "Printing & Layout",
+
+
 ];
 
 // Fallback sample projects when no CMS data
