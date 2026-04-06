@@ -25,8 +25,7 @@ export default function About({ data }: { data: AboutData | null }) {
   // ✅ صورة Sanity أو fallback local
   const profileUrl = about.profileImage
     ? urlFor(about.profileImage).width(600).height(750).format("webp").url()
-    : "/Photos/About/01.webp";
-console.log("profileUrl",profileUrl);
+    : `${process.env.NEXT_PUBLIC_SITE_URL}/Photos/About/01.webp`;
 
   return (
     <SectionWrapper id="about">
