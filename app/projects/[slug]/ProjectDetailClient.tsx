@@ -1,25 +1,32 @@
+// ...existing code...
 "use client";
 
-import { motion } from "framer-motion";
-import { PortableText } from "@portabletext/react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { PortableText } from "@portabletext/react";
 
 interface ProjectDetailProps {
   project: {
     title: string;
-    category: string;
-    date: string;
-    description: any[];
+    category?: string;
+    date?: string;
+    description?: any[];
   };
   coverUrl: string | null;
-  galleryUrls: string[];
+  galleryItems: {
+    src: string;
+    width: number;
+    height: number;
+    origWidth?: number | null;
+    origHeight?: number | null;
+  }[];
 }
 
 export default function ProjectDetailClient({
   project,
   coverUrl,
-  galleryUrls,
+  galleryItems,
 }: ProjectDetailProps) {
   return (
     <div className="min-h-screen pt-20">
@@ -68,7 +75,7 @@ export default function ProjectDetailClient({
       )}
 
       {/* Project Info */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto  px-6 lg:px-8 py-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,31 +109,38 @@ export default function ProjectDetailClient({
         </motion.div>
 
         {/* Gallery */}
-        {galleryUrls.length > 0 && (
+        {galleryItems.length > 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 space-y-6"
+            className="mt-16"
           >
             <h2 className="text-2xl font-bold text-secondary mb-8">Gallery</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {galleryUrls.map((url: string, index: number) => (
+
+            <div
+              className="columns-2 md:columns-3 xl:columns-4"
+              style={{ columnGap: "1.5rem" }}
+            >
+              {galleryItems.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.06 }}
                   viewport={{ once: true }}
-                  className="relative aspect-[3/2] rounded-xl overflow-hidden border border-border"
+                  className="mb-6 break-inside-avoid rounded-xl overflow-hidden border border-border bg-muted"
                 >
-                  <Image
-                    src={url}
+                  {/* Use plain <img> so browser preserves natural height (masonry friendly).
+                      Add width/height attributes to help layout and avoid CLS. */}
+                  <img
+                    src={item.src}
                     alt={`${project.title} — Image ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    width={item.width}
+                    height={item.height}
                     loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-cover block"
                   />
                 </motion.div>
               ))}
@@ -137,3 +151,4 @@ export default function ProjectDetailClient({
     </div>
   );
 }
+// ...existing code...

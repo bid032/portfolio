@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FaBehance, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const socialLinks = [
@@ -43,7 +44,12 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="flex gap-2 items-center"
           >
+
+           <span className="relative aspect-[63/55] h-8">
+              <Image src="/Photos/Logo/icon.png" alt="" fill/>
+            </span>
             <span className="text-xl font-bold text-secondary">
               Abdallah Ahmed<span className="text-primary">.</span>
             </span>

@@ -74,7 +74,7 @@ export default function About({ data }: { data: AboutData | null }) {
             </div>
           ) : (
             <p className="text-text-secondary leading-relaxed mb-8">
-              I&apos;m a Professional Creative Designer with over 5 years of experience in advertising and print design, helping brands stand
+              I&apos;m a Professional Creative Designer with over 5 years of experience in Advertising and Printing design, helping brands stand
               out through strategic and visually compelling solutions. By combining creative thinking with a strong marketing mindset,
               I deliver designs that communicate clearly, capture attention, and create lasting impact.
             </p>
@@ -91,7 +91,7 @@ export default function About({ data }: { data: AboutData | null }) {
                 {about.skillsText.split(",").map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1.5 text-xs bg-surface border border-border rounded-full text-text-secondary hover:border-primary hover:text-primary transition-colors duration-300"
+                    className="px-3 py-1.5 min-w-[100px] text-center text-xs bg-surface border border-border rounded-full text-text-secondary hover:border-primary hover:text-primary transition-colors duration-300"
                   >
                     {skill.trim()}
                   </span>

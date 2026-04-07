@@ -51,7 +51,7 @@ export default function Skills({ data }: { data: SkillsData | null }) {
             transition={{ duration: 0.4, delay: index * 0.05 }}
             viewport={{ once: true }}
             whileHover={{ y: -4, borderColor: "rgba(245,127,0,0.5)" }}
-            className="group p-5 bg-surface border border-border rounded-xl text-center hover:shadow-[0_0_20px_rgba(245,127,0,0.08)] transition-all duration-300"
+            className="group p-5 min-h-[82px] grid place-items-center grid text-balance bg-surface border border-border rounded-xl text-center hover:shadow-[0_0_20px_rgba(245,127,0,0.08)] transition-all duration-300"
           >
             <p className="text-sm text-text-secondary group-hover:text-primary transition-colors duration-300 font-medium">
               {skill}

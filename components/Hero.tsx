@@ -21,7 +21,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold leading-[0.95] tracking-tight text-secondary">
+          <h1 className="text-[clamp(4.5rem,10vw,8rem)] font-bold leading-[0.95] tracking-tight text-secondary">
             Abdallah{' '}
             <span className="text-primary block md:inline">Ahmed</span>
           </h1>

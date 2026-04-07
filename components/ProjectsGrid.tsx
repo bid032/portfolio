@@ -129,7 +129,7 @@ export default function ProjectsGrid({
       {/* Masonry-style Grid */}
       <motion.div
         layout
-        className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6"
+        className="columns-2 md:columns-2 lg:columns-3 gap-6 space-y-6"
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((project, index) => (
