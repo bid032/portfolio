@@ -2,9 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaBehance, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaBehance, FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const socialLinks = [
+  {
+    label: "WhatsApp",
+    href: "https://api.whatsapp.com/send/?phone=%2B201028463485",
+    icon: FaWhatsapp,
+    color: "hover:bg-[#25d366]",
+  },
   {
     label: "Behance",
     href: "https://www.behance.net/bid032/projects",
@@ -25,10 +31,10 @@ const socialLinks = [
     color: "hover:bg-[#0a66c2]",
   },
   {
-    label: "WhatsApp",
-    href: "https://api.whatsapp.com/send/?phone=%2B201028463485",
-    icon: FaWhatsapp,
-    color: "hover:bg-[#25d366]",
+    label: "Facebook",
+    href: "https://www.facebook.com/bid032",
+    icon: FaFacebook,
+    color: "hover:bg-[#2c68ff]",
   },
 ];
 
