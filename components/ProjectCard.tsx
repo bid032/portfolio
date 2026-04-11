@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/projects/${project.slug.current}`}>
       <motion.div
-        className="group relative overflow-hidden rounded-2xl bg-surface border border-border cursor-pointer"
+        className="group relative overflow-hidden rounded-3xl bg-surface border border-border cursor-pointer"
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
