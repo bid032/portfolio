@@ -119,7 +119,8 @@ export default function ProjectDetailClient({
             <h2 className="text-2xl font-bold text-secondary mb-8">Gallery</h2>
 
             <div
-              className="columns-2 md:columns-3 xl:columns-4"
+              className="grid  grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 space-y-6" 
+              // className="columns-2 md:columns-3 xl:columns-4" 
               style={{ columnGap: "1.5rem" }}
             >
               {galleryItems.map((item, index) => (
