@@ -12,29 +12,29 @@ interface ExperienceItem {
 }
 
 const fallbackExperience: ExperienceItem[] = [
-    {
-    _id: "1",
-    company: "Full Frame Group",
-    role: "Team Leader",
-    duration: "May 2026 – Present",
-    type: "Full Time",
-  },
+  //   {
+  //   _id: "1",
+  //   company: "Full Frame Group",
+  //   role: "Team Leader",
+  //   duration: "May 2026 – Present",
+  //   type: "Full Time",
+  // },
   {
-    _id: "2",
+    _id: "1",
     company: "CanGrow Group",
     role: "Team Leader - Graphic Designer",
     duration: "Nov 2024 – Apr 2026",
     type: "Full Time",
   },
   {
-    _id: "3",
+    _id: "2",
     company: "Creative Corner",
     role: "Mid. Graphic designer",
     duration: "Nov 2023 - Nov 2024",
     type: "Full Time",
   },
   {
-    _id: "4",
+    _id: "3",
     company: "To Print Agency",
     role: "Printing Designer",
     duration: "Fep 2020 - Oct 2023",
