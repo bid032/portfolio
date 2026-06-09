@@ -2,9 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaBehance, FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaBehance, FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaPhone } from "react-icons/fa";
 
 const socialLinks = [
+  {
+    label: "Phone",
+    href: "tel:+201028463485",
+    icon: FaPhone,
+    color: "hover:bg-[#22c55e]",
+  },
   {
     label: "WhatsApp",
     href: "https://api.whatsapp.com/send/?phone=%2B201028463485",
